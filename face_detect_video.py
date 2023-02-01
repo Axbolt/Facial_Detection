@@ -45,7 +45,7 @@ with faceDetector.FaceDetection(model_selection=1, min_detection_confidence=0.6)
         fps = 1 / totalTime
 
         cv2.putText(frame, f'FPS: {int(fps)}', (20, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
-        frame = cv2.resize(frame, (800, 600), interpolation=cv2.INTER_AREA)
+
         cv2.imshow('Face Detector', frame)
 
         if cv2.waitKey(5) & 0xFF == ord('q'):
