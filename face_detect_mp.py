@@ -25,6 +25,7 @@ for img_path in images_folder:
         if results.detections:
             for id, detection in enumerate(results.detections):
                 if detection.score[0] > 0.5:
+
                     # Creating a bounding box
                     b_box = detection.location_data.relative_bounding_box
                     ht, wd, ch = image.shape

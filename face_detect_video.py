@@ -4,7 +4,8 @@ import time
 
 # Video face detector
 
-capture = cv2.VideoCapture('acgt.mp4')
+# capture = cv2.VideoCapture('acgt.mp4')
+capture = cv2.VideoCapture('gvidpm_lgHoPPmn.mp4')
 
 faceDetector = mp.solutions.face_detection
 
@@ -28,6 +29,7 @@ with faceDetector.FaceDetection(model_selection=1, min_detection_confidence=0.6)
         if results.detections:
             for id, detection in enumerate(results.detections):
                 if detection.score[0] > 0.5:
+
                     # Creating a bounding box
                     b_box = detection.location_data.relative_bounding_box
                     ht, wd, ch = frame.shape
@@ -43,7 +45,7 @@ with faceDetector.FaceDetection(model_selection=1, min_detection_confidence=0.6)
         fps = 1 / totalTime
 
         cv2.putText(frame, f'FPS: {int(fps)}', (20, 70), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
-
+        frame = cv2.resize(frame, (800, 600), interpolation=cv2.INTER_AREA)
         cv2.imshow('Face Detector', frame)
 
         if cv2.waitKey(5) & 0xFF == ord('q'):
