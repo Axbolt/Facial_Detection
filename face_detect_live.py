@@ -8,7 +8,7 @@ capture = cv2.VideoCapture(0)
 
 faceDetector = mp.solutions.face_detection
 
-with faceDetector.FaceDetection(model_selection=1, min_detection_confidence=0.6) as face_detection:
+with faceDetector.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection:
 
     while True:
 
