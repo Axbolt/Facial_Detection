@@ -9,7 +9,7 @@ images_folder = glob.glob("images/*.jpg")
 
 # Loop through all the images
 for img_path in images_folder:
-    print("Imgage path", img_path)
+    print("Image path", img_path)
     image = cv2.imread(img_path)
 
     faceDetector = mp.solutions.face_detection
